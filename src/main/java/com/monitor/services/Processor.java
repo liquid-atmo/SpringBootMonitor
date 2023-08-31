@@ -46,9 +46,11 @@ public class Processor {
                 }
 
             }
-            default -> System.out.println("No such action!");
+            default -> {
+                System.out.println("No such action!");
+                throw new IllegalArgumentException();
+            }
         }
-        return Collections.emptyList();
     }
 
 }
