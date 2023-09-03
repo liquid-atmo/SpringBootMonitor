@@ -1,6 +1,6 @@
 package com.monitor.services;
 
-import com.monitor.DTO.WeatherUnit;
+import com.monitor.model.DTO.WeatherUnit;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -9,7 +9,7 @@ import java.time.Duration;
 @RequiredArgsConstructor
 @Service
 public class WeatherApiParser {
-    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(100);
+    private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(5);
 
     private final WebClient openWeatherApiClient;
 //todo убрать хардкод сити айди и апп айди

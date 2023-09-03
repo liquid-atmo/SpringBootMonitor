@@ -1,4 +1,4 @@
-package com.monitor.DTO;
+package com.monitor.model.DTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
