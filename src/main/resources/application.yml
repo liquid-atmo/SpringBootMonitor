@@ -1,0 +1,5 @@
+timeout: 10
+baseUrl: https://api.openweathermap.org/data/2.5/weather
+cityId: 551847
+appId: a1f0903165400cdcb97075a147be4037
+units: metric

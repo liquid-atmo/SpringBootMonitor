@@ -2,6 +2,7 @@ package com.monitor.services;
 
 import com.monitor.model.DTO.WeatherUnit;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import java.time.Duration;
@@ -10,13 +11,18 @@ import java.time.Duration;
 @Service
 public class WeatherApiParser {
     private static final Duration REQUEST_TIMEOUT = Duration.ofSeconds(5);
-
     private final WebClient openWeatherApiClient;
-//todo убрать хардкод сити айди и апп айди
+    @Value("${cityId}")
+    private String cityId;
+    @Value("${appId}")
+    private String appId;
+    @Value("${units}")
+    private String units;
+
     public WeatherUnit getWeather() {
         return openWeatherApiClient
                 .get()
-                .uri("?id=551847&appid=a1f0903165400cdcb97075a147be4037&units=metric")
+                .uri("?id=" + cityId + "&appid=" + appId + "&units=" + units)
                 .retrieve()
                 .bodyToMono(WeatherUnit.class)
                 .block(REQUEST_TIMEOUT);
